@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Context Diagram Generator</title>
+</head>
+<body>
+    <h1>Context Diagram Generator</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        <label for="input_text">Input:</label>
+        <input type="text" id="input_text" name="input_text">
+        <br>
+        <input type="submit" value="Generate">
+    </form>
+    {% if diagram_data %}
+        <img src="data:image/png;base64,{{ diagram_data }}" alt="Context Diagram">
+    {% endif %}
+</body>
+</html>

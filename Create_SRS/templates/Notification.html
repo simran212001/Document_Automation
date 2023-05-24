@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification</title>
+</head>
+<body>
+    <!-- <button onclick="notifyMe()">Notify me!</button>
+</body>
+<script>
+    function notifyMe() {
+        if (!("Notification" in window)) {
+            // Check if the browser supports notifications
+            alert("This browser does not support desktop notification");
+        } else if (Notification.permission === "granted") {
+            // Check whether notification permissions have already been granted;
+            // if so, create a notification
+            const notification = new Notification("Hi there!");
+            // …
+        } else if (Notification.permission !== "denied") {
+            // We need to ask the user for permission
+            Notification.requestPermission().then((permission) => {
+                // If the user accepts, let's create a notification
+                if (permission === "granted") {
+                    const notification = new Notification("Hi there!");
+                    // …
+                }
+            });
+        }
+
+            // At last, if the user has denied notifications, and you
+            // want to be respectful there is no need to bother them anymore.
+    }
+
+</script> -->
+
+
+
+<body>
+    <h1>Notification API</h1>
+    <ul class="tsummary">
+        <li>use JavaScript to display desktop notifications to the user</li>
+        <li>only works in secure contexts (https)</li>
+    </ul>
+    </body>
+    <script>
+
+        
+        function showNotification(){
+            const notification = new Notification("New message from dcode!",{
+                body: "Hey mate, how are ya? You want to catch up soon?",
+                
+            });
+        }
+        // default, granted, denied
+        console.log(Notification.permission);
+        if (Notification.permission === "granted")
+            showNotification();
+            else if (Notification.permission !== "denied")
+            Notification.requestPermission().then(permission =>{
+                if(permission === "granted"){
+                    showNotification();
+                }
+            });
+            </script>
+
+</html>
