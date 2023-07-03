@@ -412,33 +412,32 @@
 
         <div class="main-container">
             <div class="pd-ltr-20">
-                <div class="card-box pd-20 height-50-p mb-30">
+                {% comment %} <div class="card-box pd-20 height-50-p mb-30">
                     <div class="row align-items-center">
                         <div class="col-md-2">
                             <img src="/static/vendors/images/banner-img.png" alt="" width="90" height="90">
                         </div>
                         <div class="col-md-8">
-                            {% comment %} <h4 class="font-10 weight-500 mb-10 text-capitalize">
+                            <h4 class="font-10 weight-500 mb-10 text-capitalize">
                                 Welcome User!
-                            </h4> {% endcomment %}
+                            </h4>
                             <p class="font-18 max-width-600">Download UseCase Diagram</p>
                         </div>
                     </div>
-                </div>
+                </div> {% endcomment %}
 
                 <div class="card-box mb-60">
 
-                    <div class="register-page-wrap d-flex align-items-center flex-wrap justify-content-center">
-
-                        <section>
+                    {% comment %} <div class="register-page-wrap d-flex align-items-center flex-wrap justify-content-center"> {% endcomment %}
+                    <div class="register-page-wrap d-flex align-items-center flex-wrap justify-content-center" style="justify-content: center;">
+                        {% comment %} <section> {% endcomment %}
                             <img id="graph-img" src="{{graph}}" alt="Graph">
                             
                             <div class="input-group mb-0">
                                 <button class="btn btn-primary btn-lg btn-block" type="download"><a href="{{ graph}}" download>Download</a></button> 
                                 <button class="btn btn-primary btn-lg btn-block" onclick="copyImage()">Copy</button> 
                             </div>
-                        </section>
-
+                        {% comment %} </section> {% endcomment %}
 
 
                     </div>

@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'context_dia',
     'django_extensions',
+    'file_share',
 ]
+
+MEDIA_ROOT = 'C:\\Users\\hp\\Desktop\\Engineering Innovation\\Create_SRS\\file_share\\media'
+MEDIA_URL = 'media/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

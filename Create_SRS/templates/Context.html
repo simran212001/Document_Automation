@@ -369,7 +369,9 @@
 													<option value="SubAdmin">SubAdmin</option>
 													<option value="MasterAdmin">MasterAdmin</option>
 													
-												</select> </div>
+												</select> 
+											</div>
+											
 										</div>
 										<br>
 										<br>
@@ -402,6 +404,18 @@
 		</div>
 	</div>
 	<!-- js -->
+	<script>
+            function addNewValue() {
+                var selectElement = document.getElementById("choices-multiple-remove-button");
+                var newValue = document.getElementById("new-value").value;
+
+                if (newValue && !Array.from(selectElement.options).find(option => option.value === newValue)) {
+                    var newOption = new Option(newValue, newValue);
+                    selectElement.add(newOption);
+                    document.getElementById("new-value").value = "";
+                }
+            }
+        </script>
 	<script src="/static/vendors/scripts/core.js"></script>
 	<script src="/static/vendors/scripts/script.min.js"></script>
 	<script src="/static/vendors/scripts/process.js"></script>

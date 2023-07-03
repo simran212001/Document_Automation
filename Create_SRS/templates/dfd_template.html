@@ -1,0 +1,69 @@
+{% comment %} <!DOCTYPE html>
+<html>
+<head>
+    <title>Data Flow Diagram</title>
+    <style>
+        /* CSS styles for the DFD visualization */
+    </style>
+</head>
+<body>
+    <h1>Data Flow Diagram</h1>
+
+    <!-- HTML form for adding new components -->
+    <h2>Add Component</h2>
+    <form method="post" action="{% url 'generate_dfd' %}">
+        {% csrf_token %}
+        <label for="process_name">Process Name:</label>
+        <input type="text" id="process_name" name="process_name" required><br>
+
+        <label for="data_flow_name">Data Flow Name:</label>
+        <input type="text" id="data_flow_name" name="data_flow_name" required><br>
+
+        <label for="source_process">Source Process:</label>
+        <select id="source_process" name="source_process" required>
+            {% for process in processes %}
+                <option value="{{ process.id }}">{{ process.name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="target_process">Target Process:</label>
+        <select id="target_process" name="target_process" required>
+            {% for process in processes %}
+                <option value="{{ process.id }}">{{ process.name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="data_store_name">Data Store Name:</label>
+        <input type="text" id="data_store_name" name="data_store_name" required><br>
+
+        <input type="submit" value="Add Component">
+    </form>
+
+    <!-- Render the existing components -->
+    <h2>Processes</h2>
+    <ul>
+    {% for process in processes %}
+        <li>{{ process.name }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Data Flows</h2>
+    <ul>
+    {% for data_flow in data_flows %}
+        <li>{{ data_flow.name }} ({{ data_flow.source.name }} -> {{ data_flow.target.name }})</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Data Stores</h2>
+    <ul>
+    {% for data_store in data_stores %}
+        <li>{{ data_store.name }}</li>
+    {% endfor %}
+    </ul>
+
+    <!-- Add any necessary JavaScript code to visualize the DFD -->
+    <script>
+        // JavaScript code for DFD visualization
+    </script>
+</body>
+</html> {% endcomment %}

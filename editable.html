@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Editable Dropdown</title>
+        <script>
+            function addNewValue() {
+                var dropdown = document.getElementById("choices-multiple-remove-button");
+                var newValue = document.getElementById("new-value").value;
+
+                if (newValue && !Array.from(dropdown.options).find(option => option.value === newValue)) {
+                    var newOption = new Option(newValue, newValue);
+                    dropdown.appendChild(newOption);
+                    document.getElementById("new-value").value = "";
+                }
+            }
+
+            function redirectPage() {
+                window.location.href = "/your/redirect/url";  // Replace with your desired redirect URL
+            }
+        </script>
+    </head>
+
+    <body>
+        <form action="/Context_dia/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="fname">Software System Name:</label>
+            <input type="text" id="SRSname" name="srs_name"><br><br>
+
+            <label for="entities">Choose external entities:</label>
+
+            <div class="row d-flex justify-content-center mt-50">
+                <div class="col-md-10">
+                    <select id="choices-multiple-remove-button" name="entities" placeholder="Select entities" multiple>
+                        <option value="Admin">Admin</option>
+                        <option value="User">User</option>
+                        <option value="Vendor">Vendor</option>
+                        <option value="SubAdmin">SubAdmin</option>
+                        <option value="MasterAdmin">MasterAdmin</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="text" id="new-value" placeholder="Enter a new value">
+                    <button onclick="addNewValue()">Add</button>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="input-group mb-0">
+                <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="redirectPage()">Submit</button>
+            </div>
+        </form>
+    </body>
+
+</html>

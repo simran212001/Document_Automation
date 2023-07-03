@@ -330,7 +330,7 @@
 						{% comment %} <h4 class="font-10 weight-500 mb-10 text-capitalize">
 							Welcome User!
 						</h4> {% endcomment %}
-						<p class="font-18 max-width-600">Create Context Diagram</p>
+						<p class="font-18 max-width-600">Create UseCase Diagram</p>
 					</div>
 				</div>
 			</div>
@@ -375,24 +375,24 @@
 									<div>
 										
 										<label for="fields"><b>Fields:</b></label>
-										<select id="fields" name="fields" type = "text" multiple>
-											<option value="Name">Name</option>
-											<option value="Email">Email</option>
-											<option value="Phone">Phone</option>
-											<option value="Gender">Gender</option>
-											<option value="Password">Password</option>
-											<option value="Confirm Password">Confirm Password</option>
-											<option value="Dashboard Option 1">Home</option>
-											<option value="Dashboard Option 2"></option>
-											<option value="Dashboard Option 3">Dashboard Option 3</option>
-											<option value="Dashboard Option 4">Dashboard Option 4</option>
-											
-										</select>
-										{% comment %} <input type="text" id="new-field-name" name="new-field-name" placeholder="Enter new field name">
-										<button type="button" id="add-field-btn">Add Field</button> {% endcomment %}
 										
-										<input id="other-fields-input" type="text" style="display: none;">
-										<button id="add-field-btn" onclick="myFunction()">Add Field</button>
+										<br>
+										<sub>
+											(You can enter multiple fields)
+										</sub>
+										<input type="text" name="fields" id="fields" list="field-suggestions" multiple size="50">
+<datalist id="field-suggestions">
+    <option value="Name">
+    <option value="Email">
+    <option value="Phone">
+    <option value="Gender">
+    <option value="Password">
+    <option value="Confirm Password">
+    <option value="Dashboard Option 1">
+    <option value="Dashboard Option 2">
+    <option value="Dashboard Option 3">
+    <option value="Dashboard Option 4">
+</datalist>
 									</div>
 
 										<br>
@@ -498,22 +498,8 @@
 			});
 
 	</script>
-	<script>
-  $(document).ready(function() {
-    $('#add-field-btn').click(function() {
-      var newField = prompt("Enter the new field name:");
-      if (newField) {
-        var select = $('#mySelect');
-        var option = $('<option>', {
-          value: newField,
-          text: newField
-        });
-        select.append(option);
-      }
-    });
-  });
-</script>
-</script>
+	
+	
 	
 	<script src="/static/vendors/scripts/core.js"></script>
 	<script src="/static/vendors/scripts/script.min.js"></script>
